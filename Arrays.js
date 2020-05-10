@@ -110,3 +110,118 @@ console.log(numbers);
 
 
 
+
+
+
+/* 
+  Copy Array Items Using slice()
+  slice() takes 2 params, first is the starting index, and second is the stoping index
+
+  slice() does not modify the original arrya, it rather creates a new array by extracting elements from an existing array.
+
+*/
+
+const allCaps = ['A', 'B', 'C', 'D', 'E'];
+
+let AandB = allCaps.slice(0, 2); // extraction occurs from 0 index to 2 but 2 deoes not include
+
+console.log(AandB);
+
+
+
+
+
+
+
+/* 
+  Copy an Array with the Spread Operator
+  We can use ES6 speard operator ... to easly copy an array into new one
+
+  newArr = [...oldArr];
+*/
+
+
+const copyMachine = ( arr, num ) => {
+  let result = [];
+
+  while ( num >= 1 ) {
+    result.push([...arr]) // push arr to master arr;
+    num--; // sub 1 from num
+  }
+
+  return result;
+}
+
+console.log(copyMachine(allCaps, 2));
+
+
+
+
+
+
+/* 
+  Combine Arrays with the Spread Operator
+*/
+
+let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander']
+
+console.log(thatArray);
+
+
+
+
+
+
+/* 
+  Check For The Presence of an Element With indexOf()
+  we can find out the presence of an element by using indexOf mehtode
+*/
+
+const quickChecker = ( arr, elem ) => {
+  if ( arr.indexOf(elem) < 0 ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+console.log(quickChecker(allCaps, 'Z'));
+console.log(quickChecker(allCaps, 'A'));
+
+
+
+
+
+/* 
+  Iterate Through All an Array's Items Using For Loops
+*/
+// remove every nested array that contains element (elem);
+
+const filteredArr = ( arr, elem ) => {
+  let newArr = [];
+  for ( let i = 0; i < arr.length; i++ ) {
+    if ( arr[i].indexOf(elem) < 0 ) {
+      newArr.push(arr[i])
+    }
+  }
+
+  return newArr;
+}
+
+let filArr = [[1, 2, 3], [4, 5, 6], [7, 8, 3]];
+
+console.log(filteredArr(filArr, 3));
+
+
+
+
+
+
+
+
+
+
+
+
+
